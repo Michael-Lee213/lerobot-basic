@@ -33,7 +33,7 @@
 
 8. SO-ARM Calibration
    - Leader Arm Calibration / Follower Arm Calibration
-     - 아래 이미지와 같이 Calibration 결과 Calibration이 완료되면 다음과 같은 관절 위치 정보가 표시
+     - 아래 이미지와 같이 Calibration 결과 Calibration이 완료되면 다음과 같은 관절 위치 정보가 표시 <br>
      <img width="383" height="220" alt="image" src="https://github.com/user-attachments/assets/8198dfef-9229-44ee-9935-062087881ac1" />
 
 9. SO-ARM Teleoperation
