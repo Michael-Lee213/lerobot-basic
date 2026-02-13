@@ -15,11 +15,11 @@
 - git clone https://github.com/huggingface/lerobot.git
 
 4. 로봇 하드웨어 드라이버
-# Feetech 모터 (SO-ARM100, SO-ARM101)
+- Feetech 모터 (SO-ARM100, SO-ARM101)
 - uv pip install -e ".[feetech]" (실제 로봇 하드웨어를 사용으로 Feetech 모터 드라이버만 설치 필요)
 
 5.모델 학습 과정을 추적 도구 설치 
-# W&B 설치
+- W&B 설치
 - uv pip install wandb
 
 6. USB 포트 번호 고정
