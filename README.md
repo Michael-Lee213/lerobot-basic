@@ -14,15 +14,15 @@
 - sudo apt install ffmpeg
 - git clone https://github.com/huggingface/lerobot.git
 
-5. 로봇 하드웨어 드라이버
+4. 로봇 하드웨어 드라이버
 # Feetech 모터 (SO-ARM100, SO-ARM101)
 - uv pip install -e ".[feetech]" (실제 로봇 하드웨어를 사용으로 Feetech 모터 드라이버만 설치 필요)
 
-6.모델 학습 과정을 추적 도구 설치 
+5.모델 학습 과정을 추적 도구 설치 
 # W&B 설치
 - uv pip install wandb
 
-7. USB 포트 번호 고정
+6. USB 포트 번호 고정
    먼저 각 장치의 시리얼 넘버(Serial Number)를 확인
    - sudo chmod 666 /dev/ttyACM0
    - sudo chmod 666 /dev/ttyACM1
@@ -31,12 +31,12 @@
   - udev 규칙 파일 생성하여 SUBSYSTEM=="tty", ATTRS{serial}=="5AB0183022", SYMLINK+="so101_leader" / SUBSYSTEM=="tty", ATTRS{serial}=="5AB0182087", SYMLINK+="so101_follower" 포트 번호 고정
   - 이후 규칙 적용
 
-8. SO-ARM Calibration
+7. SO-ARM Calibration
    - Leader Arm Calibration / Follower Arm Calibration
      - 아래 이미지와 같이 Calibration 결과 Calibration이 완료되면 다음과 같은 관절 위치 정보가 표시 <br>
      <img width="383" height="220" alt="image" src="https://github.com/user-attachments/assets/8198dfef-9229-44ee-9935-062087881ac1" />
 
-9. SO-ARM Teleoperation
+8. SO-ARM Teleoperation
     - 모방 학습 (카메라 index 찾기 > 카메라 추가 설정 진행)
 
 lerobot-teleoperate \
