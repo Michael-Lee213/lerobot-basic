@@ -1,7 +1,10 @@
 # lerobot-basic
 
 코드 출처 : https://github.com/huggingface/lerobot/tags <br>
-문서 출처 : https://roboseasy.ai <br>
+문서 및 이미지 출처 : https://roboseasy.ai <br>
+
+<img width="765" height="433" alt="image" src="https://github.com/user-attachments/assets/a0f02924-a8c8-4069-878a-0ca6e653391f" />
+
 
 1. 설치 및 환경 설정
 - git clone https://github.com/huggingface/lerobot.git (v0.4.3)
