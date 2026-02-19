@@ -92,11 +92,11 @@ lerobot-teleoperate \
 
 <img width="419" height="334" alt="image" src="https://github.com/user-attachments/assets/a0b474c2-ecde-4a50-b183-1d7ea0d35f8b" />
 
-- cmd내 디렉토리 확인 방법
+- cmd내 디렉토리 확인 방법 <br>
   cd train/act_so101/pick_and_place/checkpoints/last > cd pretrained_model/nano train_config.json > config_path=outputs/train/act_so101/${TASK_NAME}/checkpoints/last/pretrained_model/train_config.json -resume=true
   (파라메타 수정 후 재학습)
 
- - 특정 에피소드 리플레이
+ - 특정 에피소드 리플레이<br>
    lerobot-replay \
     --robot.type=so101_follower \
     --robot.port=/dev/so101_follower \
