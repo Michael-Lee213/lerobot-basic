@@ -60,6 +60,39 @@ lerobot-teleoperate \
 <br>
 <img width="1815" height="739" alt="image" src="https://github.com/user-attachments/assets/584375f3-3165-499b-8be1-fba049c9cf94" />
 
+9. 모방학습
+- 데이터 셋 준비 및 허깅페이스 토큰 확인 (환경 설정) 
+  1)  HuggingFace CLI 토큰으로 로그인
+  2)  로그인 확인 및 환경 변수 설정
+  3)  시각화 도구 설치 > pip install rerun-sdk
+  4)  데이터 수집 ( 데이터 수집 후 허깅페이스에 자동 업로드 )
+     
+ [코드 예시] <br>
+ lerobot-record \
+    --teleop.type=so101_leader \
+    --teleop.port=/dev/so101_leader \
+    --teleop.id=leader \
+    --robot.type=so101_follower \
+    --robot.port=/dev/so101_follower \
+    --robot.id=follower \
+    --robot.cameras='{
+        top: {type: opencv, index_or_path: /dev/cam_top, width: 640, height: 480, fps: 25},
+        wrist: {type: opencv, index_or_path: /dev/cam_wrist, width: 640, height: 480, fps: 25},
+    }' \
+    -dataset.single_task=${TASK_NAME} \
+    -dataset.repo_id=${HF_USER}/${TASK_NAME} \
+    -dataset.num_episodes=45 \ >> 에피소드 한 프레임과 같은 의미
+    -dataset.episode_time_s=15 \ 한 프레임 당 걸리는 소요 시간
+    -dataset.reset_time_s=3 \ 모방 학습 액션 후 리셋 시간
+    -display_data=true
+<br>
+   ( 버전 오류 발생 시 > 예시 코드가 아닌, 위 코드로 진행 필요 ) 
+<br>
+[데이터 수집 예시] <br>
+
+<img width="419" height="334" alt="image" src="https://github.com/user-attachments/assets/a0b474c2-ecde-4a50-b183-1d7ea0d35f8b" />
+
+
 
 
    
