@@ -87,7 +87,7 @@ lerobot-teleoperate \
     -display_data=true
 <br>
    ( 버전 오류 발생 시 > 예시 코드가 아닌, 위 코드로 진행 필요 ) 
-<br>
+<br><br>
 [데이터 수집 예시] <br>
 
 <img width="419" height="334" alt="image" src="https://github.com/user-attachments/assets/a0b474c2-ecde-4a50-b183-1d7ea0d35f8b" />
