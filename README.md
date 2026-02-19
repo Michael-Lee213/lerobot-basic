@@ -53,7 +53,8 @@ lerobot-teleoperate \
   
   - wrist 리스트 삭제 필요,  index_or_path: 2 > 0 0으로 설정, 연결되어 있는 카메라 중 웹캠 제외 필요
 
-[실행 이미지]<br>
+[실행 이미지]
+<br>
 <img width="1815" height="739" alt="image" src="https://github.com/user-attachments/assets/584375f3-3165-499b-8be1-fba049c9cf94" />
 
 
