@@ -69,7 +69,7 @@ hf auth login --add-to-git-credential --token YOUR_TOKEN_HERE
 2) 로그인 확인 및 환경 변수 설정
 HF_USER=$(hf auth whoami | head -n 1)
 echo $HF_USER
-> 로그인이 성공했다면 본인의 HuggingFace 사용자명이 출력됩니다.
+> 로그인이 성공했다면 본인의 HuggingFace 사용자명이 출력
 
 3) 시각화 도구 설치
 pip install rerun-sdk
@@ -98,7 +98,7 @@ lerobot-record \
     --dataset.reset_time_s=3 \ 모방 학습 액션 후 리셋 시간
     --display_data=true
 
->> 학습 완료 후 ~/.cache/huggingface/datasets/${HF_USER}/${TASK_NAME}/ 자동 저장
+> 학습 완료 후 ~/.cache/huggingface/datasets/${HF_USER}/${TASK_NAME}/ 자동 저장
 
 6) 특정 에피소드 리플레이
 
@@ -111,7 +111,7 @@ lerobot-replay \
     
 7) 데이터 기반 기본 학습 설정 (환경 설정)
 
-   # train
+    train
 lerobot-train \
   --dataset.repo_id=${HF_USER}/${TASK_NAME} \
   --policy.repo_id=${HF_USER}/${TASK_NAME} \
