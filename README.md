@@ -69,7 +69,7 @@ hf auth login --add-to-git-credential --token YOUR_TOKEN_HERE
 2) 로그인 확인 및 환경 변수 설정
 HF_USER=$(hf auth whoami | head -n 1)
 echo $HF_USER
->> 로그인이 성공했다면 본인의 HuggingFace 사용자명이 출력됩니다.
+> 로그인이 성공했다면 본인의 HuggingFace 사용자명이 출력됩니다.
 
 3) 시각화 도구 설치
 pip install rerun-sdk
