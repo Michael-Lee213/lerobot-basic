@@ -64,7 +64,7 @@ lerobot-teleoperate \
 
 1) HuggingFace CLI 토큰으로 로그인
 hf auth login --add-to-git-credential --token YOUR_TOKEN_HERE
-# 예시: hf auth login --add-to-git-credential --token YOUR_HUGGINGFACE_TOKEN_HERE
+예시: hf auth login --add-to-git-credential --token YOUR_HUGGINGFACE_TOKEN_HERE
 
 2) 로그인 확인 및 환경 변수 설정
 HF_USER=$(hf auth whoami | head -n 1)
