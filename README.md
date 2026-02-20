@@ -172,7 +172,7 @@ lerobot-record \
     --dataset.episode_time_s=100_000 \
     --dataset.reset_time_
 
-[허깅 페이스 내 데이터 수집 예시] <br>
+[허깅 페이스 내 데이터 셋, 학습 모델 확인] <br>
 
 <img width="419" height="334" alt="image" src="https://github.com/user-attachments/assets/a0b474c2-ecde-4a50-b183-1d7ea0d35f8b" />
 
