@@ -26,21 +26,21 @@
 - uv pip install wandb
 
 6. USB 포트 번호 고정
-   먼저 각 장치의 시리얼 넘버(Serial Number)를 확인
-   - sudo chmod 666 /dev/ttyACM0
-   - sudo chmod 666 /dev/ttyACM1
+- 먼저 각 장치의 시리얼 넘버(Serial Number)를 확인
+- sudo chmod 666 /dev/ttyACM0
+- sudo chmod 666 /dev/ttyACM1
      
-  - 각 장치의 고유 시리얼 넘버를 확인 (ATTRS{serial}=="5AB0183022")
-  - udev 규칙 파일 생성하여 SUBSYSTEM=="tty", ATTRS{serial}=="5AB0183022", SYMLINK+="so101_leader" / SUBSYSTEM=="tty", ATTRS{serial}=="5AB0182087", SYMLINK+="so101_follower" 포트 번호 고정
-  - 이후 규칙 적용
+- 각 장치의 고유 시리얼 넘버를 확인 (ATTRS{serial}=="5AB0183022")
+- udev 규칙 파일 생성하여 SUBSYSTEM=="tty", ATTRS{serial}=="5AB0183022", SYMLINK+="so101_leader" / SUBSYSTEM=="tty", ATTRS{serial}=="5AB0182087", SYMLINK+="so101_follower" 포트 번호 고정
+- 이후 규칙 적용
 
 7. SO-ARM Calibration
-   - Leader Arm Calibration / Follower Arm Calibration
-     - 아래 이미지와 같이 Calibration 결과 Calibration이 완료되면 다음과 같은 관절 위치 정보가 표시 <br><br>
+- Leader Arm Calibration / Follower Arm Calibration
+- 아래 이미지와 같이 Calibration 결과 Calibration이 완료되면 다음과 같은 관절 위치 정보가 표시 <br><br>
      <img width="383" height="220" alt="image" src="https://github.com/user-attachments/assets/8198dfef-9229-44ee-9935-062087881ac1" />
 
 8. SO-ARM Teleoperation
-    - 모방 학습 (카메라 index 찾기 > 카메라 추가 설정 진행)
+- 모방 학습 (카메라 index 찾기 > 카메라 추가 설정 진행)
 
 lerobot-teleoperate \
   --teleop.type=so101_leader \
@@ -62,23 +62,23 @@ lerobot-teleoperate \
 
 9. 모방학습
 
-1) HuggingFace CLI 토큰으로 로그인
+- HuggingFace CLI 토큰으로 로그인
 hf auth login --add-to-git-credential --token YOUR_TOKEN_HERE
 예시: hf auth login --add-to-git-credential --token YOUR_HUGGINGFACE_TOKEN_HERE
 
-2) 로그인 확인 및 환경 변수 설정
+- 로그인 확인 및 환경 변수 설정
 HF_USER=$(hf auth whoami | head -n 1)
 echo $HF_USER
 > 로그인이 성공했다면 본인의 HuggingFace 사용자명이 출력
 
-3) 시각화 도구 설치
+- 시각화 도구 설치
 pip install rerun-sdk
 
-4) 데이터 수집 > 유저 네임 변경 필요 / 테스크 네임 폴더 내임 그대로 유지 > 해당 디렉토리로 자동 저장
+- 데이터 수집 > 유저 네임 변경 필요 / 테스크 네임 폴더 내임 그대로 유지 > 해당 디렉토리로 자동 저장
 export TASK_NAME="pick_and_place"
 export HF_USER="your_username"
 
-5) 데이터 수집 후 허깅페이스에 자동 업로드
+- 데이터 수집 후 허깅페이스에 자동 업로드
 
 lerobot-record \
     --teleop.type=so101_leader \
@@ -100,7 +100,7 @@ lerobot-record \
 
 > 학습 완료 후 ~/.cache/huggingface/datasets/${HF_USER}/${TASK_NAME}/ 자동 저장
 
-6) 특정 에피소드 리플레이
+- 특정 에피소드 리플레이
 
 lerobot-replay \
     --robot.type=so101_follower \
@@ -109,7 +109,7 @@ lerobot-replay \
     --dataset.repo_id=${HF_USER}/${TASK_NAME} \
     --dataset.episode=0
     
-7) 데이터 기반 기본 학습 설정 (환경 설정)
+- 데이터 기반 기본 학습 설정 (환경 설정)
 
     train
 lerobot-train \
@@ -128,12 +128,12 @@ lerobot-train \
 
 ( 버전 차이로 인해, 오류 발생 시 예시 기존 예시 코드가 아닌 위 코드로 환경 설정 필요 ) 
 
-8) 학습 재개
+- 학습 재개
 lerobot-train \
   --config_path=train_config.json \
   --resume=true
 
-9) 평가 및 실행 시간 설정을 길게 해서 끊기지 않고 반복 작업 수행
+- 평가 및 실행 시간 설정을 길게 해서 끊기지 않고 반복 작업 수행
 lerobot-record \
     --policy.path=${HF_USER}/${TASK_NAME} \
     --robot.type=so101_follower \
@@ -148,7 +148,7 @@ lerobot-record \
     --dataset.reset_time_s=1 \
     --display_data=true
    
-10 ) 디렉토리 확인
+- 디렉토리 확인
    cd outputs/train/
    cd train/act_so101/pick_and_place/checkpoints/last
    cd pretrained_model/nano train_config.json
@@ -157,7 +157,7 @@ lerobot-record \
    >> /hs/lerobot$ lerobot-train   --config_path=outputs/train/act_so101/${TASK_NAME}/checkpoints/last/pretrained_model/train_config.json --resume=true >> 파라메타 수정 후 재학습
     ( 현 예시는 학습 중 강제 종료 후 학습 파라메타 210정도로 수정하고 재 학습을 진행한 케이스 )
 
-11)  평가 및 실행 시간 설정, 반복 학습 진행 ( 최종 학습 모델 확인 ) 
+-  평가 및 실행 시간 설정, 반복 학습 진행 ( 최종 학습 모델 확인 ) 
 
 lerobot-record \
     --policy.path=${HF_USER}/${TASK_NAME} \
